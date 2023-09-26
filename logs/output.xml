@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20230926 13:50:07.812" rpa="false" schemaversion="4">
+<suite id="s1" name="Cadastro" source="C:\QAx\projects\walkdog\cadastro.robot">
+<test id="s1-t1" name="Cadastro com Sucesso" line="14">
+<kw name="Abra a Página de Cadastro" library="SignupPage">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230926 13:50:07.953" level="INFO">Opening browser 'Chrome' to base url 'https://walkdog.vercel.app/signup'.</msg>
+<msg timestamp="20230926 13:50:08.738" level="WARN">The chromedriver version (116.0.5845.96) detected in PATH at C:\Python311\Scripts\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20230926 13:50:07.948" endtime="20230926 13:50:10.797"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:07.948" endtime="20230926 13:50:10.797"/>
+</kw>
+<kw name="Preencha o Formulário com Sucesso" library="SignupPage">
+<arg>${Nome}</arg>
+<arg>${Email}</arg>
+<arg>${CPF}</arg>
+<arg>${CEP}</arg>
+<arg>${Numero}</arg>
+<arg>${UploadArquivo}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="name"]</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:10.799" level="INFO">Typing text 'Hermione Granger' into text field 'css:input[type="text"][name="name"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:10.798" endtime="20230926 13:50:10.951"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="email"]</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:10.951" level="INFO">Typing text 'hermione@mailinator.com' into text field 'css:input[type="text"][name="email"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:10.951" endtime="20230926 13:50:11.088"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="cpf"]</arg>
+<arg>${cpf}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:11.088" level="INFO">Typing text '23036754059' into text field 'css:input[type="text"][name="cpf"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:11.088" endtime="20230926 13:50:11.273"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="cep"]</arg>
+<arg>${cep}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:11.273" level="INFO">Typing text '74680285' into text field 'css:input[type="text"][name="cep"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:11.273" endtime="20230926 13:50:11.420"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="number"][name="addressNumber"]</arg>
+<arg>${numero}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:11.420" level="INFO">Typing text '123' into text field 'css:input[type="number"][name="addressNumber"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:11.420" endtime="20230926 13:50:11.561"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://p[contains(text(), 'Upload do seu documento de identificação')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:11.561" level="INFO">Clicking element 'xpath://p[contains(text(), 'Upload do seu documento de identificação')]'.</msg>
+<status status="PASS" starttime="20230926 13:50:11.561" endtime="20230926 13:50:11.660"/>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<arg>xpath://input[@type="file"]</arg>
+<arg>${upload_file}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<msg timestamp="20230926 13:50:11.660" level="INFO">Sending C:\QAx\projects\walkdog\document.png to browser.</msg>
+<status status="PASS" starttime="20230926 13:50:11.660" endtime="20230926 13:50:11.720"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:10.798" endtime="20230926 13:50:11.720"/>
+</kw>
+<kw name="Clique em Enviar" library="SignupPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css:button.button-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:11.723" level="INFO">Clicking button 'css:button.button-register'.</msg>
+<status status="PASS" starttime="20230926 13:50:11.720" endtime="20230926 13:50:11.813"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:11.720" endtime="20230926 13:50:11.813"/>
+</kw>
+<kw name="Verifique Sucesso do Cadastro" library="SignupPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Obrigado!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230926 13:50:11.813" endtime="20230926 13:50:12.471"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:11.813" endtime="20230926 13:50:12.471"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>Cadastro_dog_walker_success.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230926 13:50:12.681" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Cadastro_dog_walker_success.png"&gt;&lt;img src="Cadastro_dog_walker_success.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230926 13:50:12.472" endtime="20230926 13:50:12.681"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230926 13:50:12.681" endtime="20230926 13:50:14.898"/>
+</kw>
+<doc>Preencher todos os campos obrigatórios e verificar o sucesso do cadastro.</doc>
+<tag>happy_path</tag>
+<status status="PASS" starttime="20230926 13:50:07.948" endtime="20230926 13:50:14.898"/>
+</test>
+<test id="s1-t2" name="Cadastro Incompleto" line="24">
+<kw name="Abra a Página de Cadastro" library="SignupPage">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230926 13:50:14.901" level="INFO">Opening browser 'Chrome' to base url 'https://walkdog.vercel.app/signup'.</msg>
+<msg timestamp="20230926 13:50:15.692" level="WARN">The chromedriver version (116.0.5845.96) detected in PATH at C:\Python311\Scripts\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20230926 13:50:14.901" endtime="20230926 13:50:17.610"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:14.901" endtime="20230926 13:50:17.610"/>
+</kw>
+<kw name="Clique em Enviar" library="SignupPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css:button.button-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:17.610" level="INFO">Clicking button 'css:button.button-register'.</msg>
+<status status="PASS" starttime="20230926 13:50:17.610" endtime="20230926 13:50:17.777"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:17.610" endtime="20230926 13:50:17.777"/>
+</kw>
+<kw name="Verifique Mensagens de Erro Campos Obrigatórios" library="SignupPage">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class="alert-error"][text()="Informe o seu nome completo"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230926 13:50:17.829" level="INFO">Element 'xpath=//span[@class="alert-error"][text()="Informe o seu nome completo"]' is displayed.</msg>
+<status status="PASS" starttime="20230926 13:50:17.778" endtime="20230926 13:50:17.829"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class="alert-error"][text()="Informe o seu melhor email"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230926 13:50:17.868" level="INFO">Element 'xpath=//span[@class="alert-error"][text()="Informe o seu melhor email"]' is displayed.</msg>
+<status status="PASS" starttime="20230926 13:50:17.830" endtime="20230926 13:50:17.868"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class="alert-error"][text()="Informe o seu CPF"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230926 13:50:17.895" level="INFO">Element 'xpath=//span[@class="alert-error"][text()="Informe o seu CPF"]' is displayed.</msg>
+<status status="PASS" starttime="20230926 13:50:17.868" endtime="20230926 13:50:17.895"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class="alert-error"][text()="Informe o seu CEP"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230926 13:50:17.928" level="INFO">Element 'xpath=//span[@class="alert-error"][text()="Informe o seu CEP"]' is displayed.</msg>
+<status status="PASS" starttime="20230926 13:50:17.895" endtime="20230926 13:50:17.928"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class="alert-error"][text()="Informe um número maior que zero"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230926 13:50:17.965" level="INFO">Element 'xpath=//span[@class="alert-error"][text()="Informe um número maior que zero"]' is displayed.</msg>
+<status status="PASS" starttime="20230926 13:50:17.928" endtime="20230926 13:50:17.965"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class="alert-error"][text()="Adcione um documento com foto (RG ou CHN)"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230926 13:50:17.992" level="INFO">Element 'xpath=//span[@class="alert-error"][text()="Adcione um documento com foto (RG ou CHN)"]' is displayed.</msg>
+<status status="PASS" starttime="20230926 13:50:17.965" endtime="20230926 13:50:17.992"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:17.778" endtime="20230926 13:50:17.992"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>campos_obrigatórios.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230926 13:50:18.095" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="campos_obrigat%C3%B3rios.png"&gt;&lt;img src="campos_obrigat%C3%B3rios.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230926 13:50:17.996" endtime="20230926 13:50:18.095"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230926 13:50:18.095" endtime="20230926 13:50:20.336"/>
+</kw>
+<doc>Preencher apenas alguns campos obrigatórios e verificar a mensagem de erro.</doc>
+<tag>required</tag>
+<status status="PASS" starttime="20230926 13:50:14.901" endtime="20230926 13:50:20.337"/>
+</test>
+<test id="s1-t3" name="CPF Inválido" line="33">
+<kw name="Abra a Página de Cadastro" library="SignupPage">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230926 13:50:20.341" level="INFO">Opening browser 'Chrome' to base url 'https://walkdog.vercel.app/signup'.</msg>
+<msg timestamp="20230926 13:50:21.073" level="WARN">The chromedriver version (116.0.5845.96) detected in PATH at C:\Python311\Scripts\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20230926 13:50:20.341" endtime="20230926 13:50:23.030"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:20.341" endtime="20230926 13:50:23.030"/>
+</kw>
+<kw name="Preencha o Formulário com Sucesso" library="SignupPage">
+<arg>${Nome}</arg>
+<arg>${Email}</arg>
+<arg>12345a</arg>
+<arg>${CEP}</arg>
+<arg>${Numero}</arg>
+<arg>${UploadArquivo}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="name"]</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:23.030" level="INFO">Typing text 'Hermione Granger' into text field 'css:input[type="text"][name="name"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:23.030" endtime="20230926 13:50:23.158"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="email"]</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:23.164" level="INFO">Typing text 'hermione@mailinator.com' into text field 'css:input[type="text"][name="email"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:23.158" endtime="20230926 13:50:23.287"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="cpf"]</arg>
+<arg>${cpf}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:23.287" level="INFO">Typing text '12345a' into text field 'css:input[type="text"][name="cpf"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:23.287" endtime="20230926 13:50:23.440"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="cep"]</arg>
+<arg>${cep}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:23.440" level="INFO">Typing text '74680285' into text field 'css:input[type="text"][name="cep"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:23.440" endtime="20230926 13:50:23.554"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="number"][name="addressNumber"]</arg>
+<arg>${numero}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:23.557" level="INFO">Typing text '123' into text field 'css:input[type="number"][name="addressNumber"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:23.554" endtime="20230926 13:50:23.701"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://p[contains(text(), 'Upload do seu documento de identificação')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:23.701" level="INFO">Clicking element 'xpath://p[contains(text(), 'Upload do seu documento de identificação')]'.</msg>
+<status status="PASS" starttime="20230926 13:50:23.701" endtime="20230926 13:50:23.798"/>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<arg>xpath://input[@type="file"]</arg>
+<arg>${upload_file}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<msg timestamp="20230926 13:50:23.798" level="INFO">Sending C:\QAx\projects\walkdog\document.png to browser.</msg>
+<status status="PASS" starttime="20230926 13:50:23.798" endtime="20230926 13:50:23.872"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:23.030" endtime="20230926 13:50:23.872"/>
+</kw>
+<kw name="Clique em Enviar" library="SignupPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css:button.button-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:23.872" level="INFO">Clicking button 'css:button.button-register'.</msg>
+<status status="PASS" starttime="20230926 13:50:23.872" endtime="20230926 13:50:23.968"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:23.872" endtime="20230926 13:50:23.968"/>
+</kw>
+<kw name="Verifique Mensagem de Erro CPF Inválido" library="SignupPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>CPF inválido</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230926 13:50:23.968" endtime="20230926 13:50:23.988"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:23.968" endtime="20230926 13:50:23.988"/>
+</kw>
+<kw name="Capture Element Screenshot" library="SeleniumLibrary">
+<arg>xpath=//span[@class="alert-error"][text()="CPF inválido"]</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<msg timestamp="20230926 13:50:24.137" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-3.png"&gt;&lt;img src="selenium-element-screenshot-3.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230926 13:50:23.988" endtime="20230926 13:50:24.137"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>cpf_invalido.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230926 13:50:24.770" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="cpf_invalido.png"&gt;&lt;img src="cpf_invalido.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230926 13:50:24.138" endtime="20230926 13:50:24.770"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230926 13:50:24.770" endtime="20230926 13:50:26.936"/>
+</kw>
+<doc>Preencher com um CPF inválido e verificar a mensagem de erro.</doc>
+<tag>cpf_inv</tag>
+<status status="PASS" starttime="20230926 13:50:20.338" endtime="20230926 13:50:26.937"/>
+</test>
+<test id="s1-t4" name="Email Inválido" line="44">
+<kw name="Abra a Página de Cadastro" library="SignupPage">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230926 13:50:26.938" level="INFO">Opening browser 'Chrome' to base url 'https://walkdog.vercel.app/signup'.</msg>
+<msg timestamp="20230926 13:50:27.698" level="WARN">The chromedriver version (116.0.5845.96) detected in PATH at C:\Python311\Scripts\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20230926 13:50:26.938" endtime="20230926 13:50:29.608"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:26.938" endtime="20230926 13:50:29.608"/>
+</kw>
+<kw name="Preencha o Formulário com Sucesso" library="SignupPage">
+<arg>${Nome}</arg>
+<arg>seuemail</arg>
+<arg>${CPF}</arg>
+<arg>${CEP}</arg>
+<arg>${Numero}</arg>
+<arg>${UploadArquivo}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="name"]</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:29.608" level="INFO">Typing text 'Hermione Granger' into text field 'css:input[type="text"][name="name"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:29.608" endtime="20230926 13:50:29.758"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="email"]</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:29.758" level="INFO">Typing text 'seuemail' into text field 'css:input[type="text"][name="email"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:29.758" endtime="20230926 13:50:29.856"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="cpf"]</arg>
+<arg>${cpf}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:29.857" level="INFO">Typing text '23036754059' into text field 'css:input[type="text"][name="cpf"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:29.856" endtime="20230926 13:50:29.985"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="text"][name="cep"]</arg>
+<arg>${cep}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:29.985" level="INFO">Typing text '74680285' into text field 'css:input[type="text"][name="cep"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:29.985" endtime="20230926 13:50:30.150"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type="number"][name="addressNumber"]</arg>
+<arg>${numero}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:30.155" level="INFO">Typing text '123' into text field 'css:input[type="number"][name="addressNumber"]'.</msg>
+<status status="PASS" starttime="20230926 13:50:30.150" endtime="20230926 13:50:30.308"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://p[contains(text(), 'Upload do seu documento de identificação')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:30.308" level="INFO">Clicking element 'xpath://p[contains(text(), 'Upload do seu documento de identificação')]'.</msg>
+<status status="PASS" starttime="20230926 13:50:30.308" endtime="20230926 13:50:30.397"/>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<arg>xpath://input[@type="file"]</arg>
+<arg>${upload_file}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<msg timestamp="20230926 13:50:30.399" level="INFO">Sending C:\QAx\projects\walkdog\document.png to browser.</msg>
+<status status="PASS" starttime="20230926 13:50:30.397" endtime="20230926 13:50:30.451"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:29.608" endtime="20230926 13:50:30.451"/>
+</kw>
+<kw name="Clique em Enviar" library="SignupPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css:button.button-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230926 13:50:30.451" level="INFO">Clicking button 'css:button.button-register'.</msg>
+<status status="PASS" starttime="20230926 13:50:30.451" endtime="20230926 13:50:30.548"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:30.451" endtime="20230926 13:50:30.548"/>
+</kw>
+<kw name="Verifique Mensagem de Erro Email Inválido" library="SignupPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Informe um email válido</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230926 13:50:30.550" endtime="20230926 13:50:30.568"/>
+</kw>
+<status status="PASS" starttime="20230926 13:50:30.550" endtime="20230926 13:50:30.568"/>
+</kw>
+<kw name="Capture Element Screenshot" library="SeleniumLibrary">
+<arg>xpath=//span[@class="alert-error"][text()="Informe um email válido"]</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<msg timestamp="20230926 13:50:30.688" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-4.png"&gt;&lt;img src="selenium-element-screenshot-4.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230926 13:50:30.568" endtime="20230926 13:50:30.688"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>email_invalido.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230926 13:50:31.302" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="email_invalido.png"&gt;&lt;img src="email_invalido.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230926 13:50:30.688" endtime="20230926 13:50:31.307"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230926 13:50:31.307" endtime="20230926 13:50:33.544"/>
+</kw>
+<doc>Preencher com um email inválido e verificar a mensagem de erro.</doc>
+<tag>email_inv</tag>
+<status status="PASS" starttime="20230926 13:50:26.938" endtime="20230926 13:50:33.544"/>
+</test>
+<status status="PASS" starttime="20230926 13:50:07.818" endtime="20230926 13:50:33.544"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">cpf_inv</stat>
+<stat pass="1" fail="0" skip="0">email_inv</stat>
+<stat pass="1" fail="0" skip="0">happy_path</stat>
+<stat pass="1" fail="0" skip="0">required</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Cadastro">Cadastro</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230926 13:50:08.738" level="WARN">The chromedriver version (116.0.5845.96) detected in PATH at C:\Python311\Scripts\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg timestamp="20230926 13:50:15.692" level="WARN">The chromedriver version (116.0.5845.96) detected in PATH at C:\Python311\Scripts\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg timestamp="20230926 13:50:21.073" level="WARN">The chromedriver version (116.0.5845.96) detected in PATH at C:\Python311\Scripts\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg timestamp="20230926 13:50:27.698" level="WARN">The chromedriver version (116.0.5845.96) detected in PATH at C:\Python311\Scripts\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
